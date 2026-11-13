@@ -1,246 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Daily Domestics provides doorstep car washing in Thiruvananthapuram, including exterior wash, interior cleaning, full wash and wax polishing. Explore monthly subscription plans.">
-  <meta name="theme-color" content="#10251f">
-  <title>Daily Domestics | Doorstep Car Wash in Trivandrum</title>
-  <style>
-    :root {
-      --ink: #14251f;
-      --muted: #64736d;
-      --green: #167451;
-      --lime: #d9f36a;
-      --cream: #f6f8f3;
-      --white: #fff;
-      --line: #e5ebe5;
-      --shadow: 0 18px 50px rgba(16,37,31,.12);
-    }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body { margin: 0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: var(--ink); background: var(--white); line-height: 1.6; }
-    a { color: inherit; text-decoration: none; }
-    img { display: block; max-width: 100%; }
-    .wrap { width: min(1140px, calc(100% - 40px)); margin: 0 auto; }
-    .topbar { background: var(--ink); color: #eaf3ed; font-size: 13px; padding: 9px 0; }
-    .topbar .wrap { display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; }
-    header { position: sticky; top: 0; z-index: 10; background: rgba(255,255,255,.94); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
-    .nav { min-height: 76px; display:flex; align-items:center; justify-content:space-between; gap:22px; }
-    .brand { display:flex; align-items:center; gap:12px; font-weight:850; letter-spacing:-.04em; font-size:20px; }
-    .brand-mark { width:42px; height:42px; border-radius:13px; display:grid; place-items:center; color:var(--ink); background:var(--lime); font-size:22px; }
-    .brand small { display:block; font-size:9px; letter-spacing:.16em; color:var(--muted); font-weight:800; margin-top:-3px; }
-    .links { display:flex; align-items:center; gap:26px; font-size:14px; font-weight:650; color:#42534b; }
-    .links a:hover { color:var(--green); }
-    .btn { display:inline-flex; align-items:center; justify-content:center; gap:9px; padding:13px 19px; border-radius:999px; font-weight:750; font-size:14px; transition:.2s ease; border:1px solid transparent; }
-    .btn-primary { background:var(--green); color:white; box-shadow:0 8px 20px rgba(22,116,81,.18); }
-    .btn-primary:hover { background:#105c40; transform:translateY(-2px); }
-    .btn-light { background:white; color:var(--ink); border-color:#dfe8e0; }
-    .btn-light:hover { transform:translateY(-2px); }
-    .hero { background:var(--ink); color:white; overflow:hidden; position:relative; }
-    .hero:before { content:""; position:absolute; inset:0; background:linear-gradient(90deg,rgba(8,25,19,.94) 0%,rgba(8,25,19,.78) 48%,rgba(8,25,19,.18) 100%),url("https://images.unsplash.com/photo-1607860108855-64acf2078ed9?auto=format&fit=crop&w=2000&q=85") center/cover; }
-    .hero-inner { position:relative; min-height:590px; display:grid; align-items:center; padding:80px 0; }
-    .hero-copy { max-width:650px; }
-    .eyebrow { display:inline-flex; align-items:center; gap:9px; color:var(--lime); font-size:12px; text-transform:uppercase; letter-spacing:.17em; font-weight:850; }
-    .eyebrow:before { content:""; width:28px; height:2px; background:var(--lime); }
-    h1 { font-size:clamp(42px,6vw,72px); line-height:1.02; letter-spacing:-.055em; margin:22px 0 18px; }
-    h1 span { color:var(--lime); }
-    .hero p { color:#d6e1da; font-size:18px; max-width:550px; margin:0 0 30px; }
-    .hero-actions { display:flex; flex-wrap:wrap; gap:12px; }
-    .hero-note { margin-top:32px; color:#d0ddd5; font-size:13px; display:flex; align-items:center; gap:10px; }
-    .hero-note b { color:white; }
-    section { padding:88px 0; }
-    .section-head { max-width:680px; margin-bottom:38px; }
-    .kicker { color:var(--green); text-transform:uppercase; letter-spacing:.16em; font-size:11px; font-weight:900; }
-    h2 { font-size:clamp(30px,4vw,46px); letter-spacing:-.045em; line-height:1.1; margin:12px 0 14px; }
-    .section-head p, .muted { color:var(--muted); }
-    .services-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:18px; }
-    .service { border:1px solid var(--line); border-radius:18px; overflow:hidden; background:white; transition:.2s; }
-    .service:hover { transform:translateY(-5px); box-shadow:var(--shadow); }
-    .service img { width:100%; height:180px; object-fit:cover; }
-    .service-body { padding:20px; }
-    .service h3 { margin:0 0 8px; font-size:18px; letter-spacing:-.02em; }
-    .service p { color:var(--muted); margin:0; font-size:14px; }
-    .subscription { background:var(--cream); }
-    .subscription-layout { display:grid; grid-template-columns:1fr .9fr; gap:48px; align-items:center; }
-    .subscription-image { min-height:410px; border-radius:24px; background:url("https://images.unsplash.com/photo-1607860108855-64acf2078ed9?auto=format&fit=crop&w=1200&q=85") center/cover; box-shadow:var(--shadow); }
-    .plan-box { background:white; border:1px solid var(--line); border-radius:22px; padding:28px; box-shadow:var(--shadow); }
-    .plan-box h3 { margin:0 0 10px; font-size:23px; }
-    .plan-box p { color:var(--muted); }
-    .check-list { list-style:none; padding:0; margin:22px 0; display:grid; gap:12px; }
-    .check-list li { display:flex; gap:10px; color:#405148; font-size:14px; }
-    .check-list li:before { content:"✓"; color:var(--green); font-weight:900; }
-    .why-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
-    .why-card { padding:25px; border-radius:18px; background:var(--cream); }
-    .why-icon { width:44px; height:44px; display:grid; place-items:center; background:var(--lime); border-radius:14px; font-size:21px; margin-bottom:17px; }
-    .why-card h3 { margin:0 0 8px; font-size:18px; }
-    .why-card p { color:var(--muted); font-size:14px; margin:0; }
-    .app-band { background:#eaf3eb; padding:55px 0; }
-    .app-content { display:flex; align-items:center; justify-content:space-between; gap:25px; }
-    .app-content h2 { margin:0 0 8px; font-size:32px; }
-    .app-content p { margin:0; color:var(--muted); }
-    .contact { background:var(--ink); color:white; }
-    .contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:55px; }
-    .contact .kicker { color:var(--lime); }
-    .contact p { color:#cbd8d0; }
-    .contact-details { display:grid; gap:18px; margin-top:28px; }
-    .contact-item { display:flex; gap:14px; align-items:flex-start; color:#e8f0eb; font-size:14px; }
-    .contact-item strong { display:block; color:white; margin-bottom:3px; }
-    .contact-card { background:#1c352b; padding:28px; border-radius:20px; border:1px solid #355044; }
-    .contact-card h3 { margin:0 0 16px; font-size:22px; }
-    .contact-card .btn { width:100%; margin-top:10px; }
-    footer { background:#0b1914; color:#aebdb4; padding:24px 0; font-size:12px; }
-    footer .wrap { display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; }
-    .wa-float { position:fixed; right:22px; bottom:22px; z-index:20; background:#20bd65; color:white; width:60px; height:60px; border-radius:50%; display:grid; place-items:center; font-size:27px; box-shadow:0 10px 30px rgba(0,0,0,.22); }
-    .wa-float:hover { transform:translateY(-3px); }
-    @media(max-width:900px) {
-      .services-grid { grid-template-columns:repeat(2,1fr); }
-      .subscription-layout,.contact-grid { grid-template-columns:1fr; }
-      .subscription-image { min-height:300px; }
-      .why-grid { grid-template-columns:1fr; }
-      .links { gap:14px; }
-    }
-    @media(max-width:640px) {
-      .wrap { width:min(100% - 30px,1140px); }
-      .topbar .wrap { justify-content:center; text-align:center; }
-      .nav { min-height:66px; }
-      .links { display:none; }
-      .nav > .btn { padding:10px 14px; font-size:12px; }
-      .hero-inner { min-height:540px; padding:65px 0; }
-      .hero:before { background:linear-gradient(90deg,rgba(8,25,19,.92),rgba(8,25,19,.68)),url("https://images.unsplash.com/photo-1607860108855-64acf2078ed9?auto=format&fit=crop&w=1000&q=80") center/cover; }
-      .hero p { font-size:16px; }
-      section { padding:65px 0; }
-      .services-grid { gap:12px; }
-      .service img { height:130px; }
-      .service-body { padding:14px; }
-      .service h3 { font-size:16px; }
-      .service p { font-size:12px; }
-      .app-content { align-items:flex-start; flex-direction:column; }
-      .contact-grid { gap:30px; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Daily Domestics provides doorstep car washing in Thiruvananthapuram.">
+<meta name="theme-color" content="#10251f">
+<title>Daily Domestics | Doorstep Car Wash in Trivandrum</title>
+<style>
+:root{--ink:#14251f;--muted:#64736d;--green:#167451;--lime:#d9f36a;--cream:#f6f8f3;--line:#e5ebe5}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,sans-serif;color:var(--ink);line-height:1.6}a{color:inherit;text-decoration:none}.wrap{width:min(1140px,calc(100% - 40px));margin:auto}
+.topbar,footer{background:#14251f;color:#eaf3ed;padding:12px 0;font-size:13px}.topbar .wrap,footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+header{position:sticky;top:0;background:#ffffffed;border-bottom:1px solid var(--line);z-index:5}.nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{font-weight:bold;font-size:20px}.brand small{display:block;font-size:9px;letter-spacing:2px;color:var(--muted)}.links{display:flex;gap:24px;font-size:14px}
+.btn{display:inline-block;padding:12px 19px;border-radius:30px;font-weight:bold;font-size:14px}.btn-primary{background:var(--green);color:white}.btn-light{background:white;color:var(--ink);border:1px solid var(--line)}
+.hero{background:linear-gradient(90deg,#081913ed,#08191388),url('https://images.unsplash.com/photo-1607860108855-64acf2078ed9?auto=format&fit=crop&w=2000&q=85') center/cover;color:white}.hero-inner{min-height:570px;display:flex;align-items:center;padding:70px 0}.hero-copy{max-width:650px}.eyebrow,.kicker{color:var(--green);font-size:12px;text-transform:uppercase;letter-spacing:2px;font-weight:bold}.eyebrow{color:var(--lime)}h1{font-size:clamp(42px,6vw,72px);line-height:1.05;margin:20px 0}h1 span{color:var(--lime)}.hero p{font-size:18px;color:#d6e1da}.hero-actions{display:flex;gap:12px;flex-wrap:wrap}.hero-note{margin-top:28px;font-size:13px;color:#d0ddd5}
+section{padding:78px 0}.section-head{max-width:680px;margin-bottom:35px}h2{font-size:clamp(30px,4vw,46px);line-height:1.1;margin:12px 0}.muted,.section-head p{color:var(--muted)}
+.services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.service{border:1px solid var(--line);border-radius:18px;overflow:hidden}.service img{display:block;width:100%;height:190px;object-fit:cover;background:#e8eee9}.service-body{padding:18px}.service h3{margin:0 0 8px}.service p,.why-card p{font-size:14px;color:var(--muted);margin:0}
+.subscription{background:var(--cream)}.subscription-layout{display:grid;grid-template-columns:1fr .9fr;gap:45px;align-items:center}.subscription-image{min-height:380px;border-radius:22px;background:url('https://images.unsplash.com/photo-1607860108855-64acf2078ed9?auto=format&fit=crop&w=1200&q=85') center/cover}
+.check-list{padding-left:20px;color:#405148}.check-list li{margin:10px 0}.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.why-card{padding:24px;background:var(--cream);border-radius:18px}.why-card h3{margin:0 0 8px}
+.app-band{background:#eaf3eb;padding:45px 0}.app-content{display:flex;justify-content:space-between;align-items:center;gap:20px}.app-content h2{font-size:30px;margin:8px 0}.contact{background:var(--ink);color:white}.contact .kicker{color:var(--lime)}.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:45px}.contact p{color:#cbd8d0}.contact-details{margin-top:25px}.contact-item{margin:18px 0;color:#e8f0eb;font-size:14px}.contact-item strong{display:block;color:white}.contact-card{background:#1c352b;border:1px solid #355044;border-radius:20px;padding:26px}.contact-card h3{margin-top:0}.contact-card .btn{display:block;text-align:center;margin-top:12px}.wa-float{position:fixed;right:22px;bottom:22px;background:#20bd65;color:white;border-radius:50%;width:58px;height:58px;display:grid;place-items:center;font-size:25px}
+@media(max-width:850px){.services-grid{grid-template-columns:repeat(2,1fr)}.subscription-layout,.contact-grid{grid-template-columns:1fr}.why-grid{grid-template-columns:1fr}.links{gap:12px}}
+@media(max-width:600px){.links{display:none}.nav{min-height:65px}.hero-inner{min-height:520px}.hero p{font-size:16px}.app-content{align-items:flex-start;flex-direction:column}.services-grid{gap:12px}.service img{height:125px}.wrap{width:calc(100% - 30px)}}
+
+.service img{color:var(--muted)}
+@media(max-width:600px){.service img{height:150px}}
+</style>
 </head>
 <body>
-  <div class="topbar"><div class="wrap"><span>Doorstep car care across Thiruvananthapuram</span><span>customercare@dailydomestics.co.in</span></div></div>
-  <header>
-    <div class="wrap nav">
-      <a class="brand" href="#home" aria-label="Daily Domestics home"><span class="brand-mark">✦</span><span>DAILY DOMESTICS<small>LOVE YOUR CAR. DRIVE IT CLEAN.</small></span></a>
-      <nav class="links" aria-label="Main navigation"><a href="#services">Services</a><a href="#subscriptions">Monthly plans</a><a href="#about">Why us</a><a href="#contact">Contact</a></nav>
-      <a class="btn btn-primary" href="https://wa.me/917510100027?text=Hello%20Daily%20Domestics%2C%20I%27d%20like%20to%20know%20more%20about%20your%20car%20wash%20services." target="_blank" rel="noopener">WhatsApp us ↗</a>
-    </div>
-  </header>
-
-  <main>
-    <section class="hero" id="home" style="padding:0">
-      <div class="wrap hero-inner">
-        <div class="hero-copy">
-          <div class="eyebrow">Doorstep car wash · Trivandrum</div>
-          <h1>Love your car.<br><span>Drive it clean.</span></h1>
-          <p>Professional car cleaning at your doorstep in Thiruvananthapuram. Choose an exterior wash, interior cleaning, a complete wash or wax polishing — and explore convenient monthly subscription plans.</p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="https://wa.me/917510100027?text=Hello%20Daily%20Domestics%2C%20please%20share%20your%20car%20wash%20services%20and%20monthly%20subscription%20plans." target="_blank" rel="noopener">Enquire on WhatsApp ↗</a>
-            <a class="btn btn-light" href="https://play.google.com/store/apps/details?id=com.dailydomestics.washmycar" target="_blank" rel="noopener">Book with our app</a>
-          </div>
-          <div class="hero-note"><b>Convenient doorstep service</b><span>•</span><span>Monthly subscriptions available</span></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="services">
-      <div class="wrap">
-        <div class="section-head">
-          <div class="kicker">Our services</div>
-          <h2>Everyday care for a car that feels new.</h2>
-          <p>Choose the cleaning service that suits your vehicle. Get in touch to check service availability at your location in Trivandrum.</p>
-        </div>
-        <div class="services-grid">
-          <article class="service">
-            <img src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?auto=format&fit=crop&w=800&q=80" alt="Car exterior being washed with water">
-            <div class="service-body"><h3>Exterior Wash</h3><p>Give your car's exterior a fresh, clean finish with a convenient doorstep wash.</p></div>
-          </article>
-          <article class="service">
-            <img src="https://images.unsplash.com/photo-1601362840469-51e4d8d58785?auto=format&fit=crop&w=800&q=80" alt="Clean modern car interior">
-            <div class="service-body"><h3>Interior Cleaning</h3><p>Refresh your cabin and keep the inside of your car neat and comfortable.</p></div>
-          </article>
-          <article class="service">
-            
-            <div class="service-body"><h3>Full Wash</h3><p>Combine exterior and interior care for a more complete clean.</p></div>
-          </article>
-          <article class="service">
-            
-            <div class="service-body"><h3>Wax Polishing</h3><p>Add a polished look to your vehicle. Contact us for package and availability details.</p></div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="subscription" id="subscriptions">
-      <div class="wrap subscription-layout">
-        <div>
-          <div class="kicker">Monthly subscriptions</div>
-          <h2>Make car care a simple monthly habit.</h2>
-          <p class="muted">Choose a recurring plan that fits your vehicle and cleaning routine. Contact our team to learn about current subscription options, visit frequency, pricing and service coverage.</p>
-          <ul class="check-list">
-            <li>Monthly subscription options</li>
-            <li>Doorstep service in supported areas</li>
-            <li>Choose from available wash and care services</li>
-            <li>Booking assistance through WhatsApp or our Android app</li>
-          </ul>
-          <a class="btn btn-primary" href="https://wa.me/917510100027?text=Hello%2C%20I%27m%20interested%20in%20Daily%20Domestics%20monthly%20subscription%20plans." target="_blank" rel="noopener">Ask about monthly plans ↗</a>
-        </div>
-        <div class="subscription-image" role="img" aria-label="A freshly washed car"></div>
-      </div>
-    </section>
-
-    <section id="about">
-      <div class="wrap">
-        <div class="section-head">
-          <div class="kicker">Why Daily Domestics</div>
-          <h2>Car care that comes to you.</h2>
-          <p class="muted">We make it easier to keep your vehicle clean with doorstep service and convenient ways to enquire and book.</p>
-        </div>
-        <div class="why-grid">
-          <article class="why-card"><div class="why-icon">⌂</div><h3>Doorstep convenience</h3><p>Get your car cleaned at your doorstep in our supported service locations across Thiruvananthapuram.</p></article>
-          <article class="why-card"><div class="why-icon">↻</div><h3>Monthly plans</h3><p>Explore subscription options designed to make regular car cleaning easier to plan.</p></article>
-          <article class="why-card"><div class="why-icon">✦</div><h3>Multiple care options</h3><p>Choose exterior wash, interior cleaning, full wash or wax polishing based on your needs.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <div class="app-band">
-      <div class="wrap app-content">
-        <div><div class="kicker">Easy appointment booking</div><h2>Book your car wash with our Android app.</h2><p>Visit our app listing to explore appointment booking.</p></div>
-        <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.dailydomestics.washmycar" target="_blank" rel="noopener">Get the Android app ↗</a>
-      </div>
-    </div>
-
-    <section class="contact" id="contact">
-      <div class="wrap contact-grid">
-        <div>
-          <div class="kicker">Get in touch</div>
-          <h2>Let's keep your car clean.</h2>
-          <p>Contact Daily Domestics for service enquiries, doorstep availability and monthly subscription details.</p>
-          <div class="contact-details">
-            <div class="contact-item"><span>✉</span><div><strong>Email</strong><a href="mailto:customercare@dailydomestics.co.in">customercare@dailydomestics.co.in</a></div></div>
-            <div class="contact-item"><span>⌖</span><div><strong>Registered Office</strong>Sivam, Chempazhanthy, Aniyoor P.O.,<br>Thiruvananthapuram</div></div>
-            <div class="contact-item"><span>⌖</span><div><strong>Corporate Office</strong>CRA G 26, Vaniyatu Lane, Decent Jn.,<br>Poojappura P.O., Thiruvananthapuram</div></div>
-          </div>
-        </div>
-        <div class="contact-card">
-          <h3>DAILY DOMESTICS PVT. LTD.</h3>
-          <p><strong>GSTIN:</strong> 32AAICD3054E2Z3</p>
-          <p>Have a question or want to know which monthly plan is right for you? Message our team on WhatsApp.</p>
-          <a class="btn btn-primary" href="https://wa.me/917510100027?text=Hello%20Daily%20Domestics%2C%20I%27d%20like%20to%20enquire%20about%20your%20doorstep%20car%20wash%20services." target="_blank" rel="noopener">Chat on WhatsApp · +91 75101 00027</a>
-          <a class="btn btn-light" href="https://play.google.com/store/apps/details?id=com.dailydomestics.washmycar" target="_blank" rel="noopener">Book an appointment in the app</a>
-          <p style="font-size:12px;margin-top:22px;color:#b9c9c0">“Love your car Drive it clean”</p>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer><div class="wrap"><span>© <span id="year"></span> DAILY DOMESTICS PVT. LTD. All rights reserved.</span><span>Doorstep car wash services · Thiruvananthapuram, Kerala</span></div></footer>
-  <a class="wa-float" href="https://wa.me/917510100027?text=Hello%20Daily%20Domestics!" target="_blank" rel="noopener" aria-label="Message Daily Domestics on WhatsApp">◉</a>
-  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
-</body>
-</html>
-
+<div class="topbar"><div class="wrap"><span>Doorstep car care across Thiruvananthapuram</span><span>customercare@dailydomestics.co.in</span></div></div>
+<header><div class="wrap nav">
+<a class="brand" href="#home">✦ DAILY DOMESTICS<small>LOVE YOUR CAR. DRIVE IT CLEAN.</small></a>
+<nav class="links"><a href="#services">Services</a><a href="#subscriptions">Monthly plans</a><a href="#about">Why us</a><a href="#contact">Contact</a></nav>
+<a class="btn btn-primary" href="https://wa.me/917510100027" target="_blank" rel="noopener">WhatsApp us ↗</a>
+</div></header>
+<main>
+<section class="hero" id="home"><div class="wrap hero-inner"><div class="hero-copy">
+<div class="eyebrow">Doorstep car wash · Trivandrum</div><h1>Love your car.<br><span>Drive it clean.</span></h1>
+<p>Professional car cleaning at your doorstep in Thiruvananthapuram. Choose an exterior wash, interior cleaning, a complete wash or wax polishing — and explore convenient monthly subscription plans.</p>
+<div class="hero-actions"><a class="btn btn-primary" href="https://wa.me/917510100027" target="_blank" rel="noopener">Enquire on WhatsApp ↗</a><a class="btn btn-light" href="https://play.google.com/store/apps/details?id=com.dailydomestics.washmycar" target="_blank" rel="noopener">Book with our app</a></div>
+<div class="hero-note">Convenient doorstep service · Monthly subscriptions available</div>
+</div></div></section>
+<section id="services"><div class="wrap"><div class="section-head"><div class="kicker">Our services</div><h2>Everyday care for a car that feels new.</h2><p>Choose the cleaning service that suits your vehicle. Get in touch to check service availability at your location in Trivandrum.</p></div>
+<div class="services-grid">
+<article class="service"><img src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?auto=format&fit=crop&w=900&q=85" alt="Professional exterior car wash" loading="lazy"><div class="service-body"><h3>Exterior Wash</h3><p>Give your car's exterior a fresh, clean finish with a convenient doorstep wash.</p></div></article>
+<article class="service"><img src="https://images.unsplash.com/photo-1504215680853-026ed2a45def?auto=format&fit=crop&w=900&q=85" alt="Clean and refreshed car interior" loading="lazy"><div class="service-body"><h3>Interior Cleaning</h3><p>Refresh your cabin and keep the inside of your car neat and comfortable.</p></div></article>
+<article class="service"><img src="https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?auto=format&fit=crop&w=900&q=85" alt="Car after a complete wash" loading="lazy"><div class="service-body"><h3>Full Wash</h3><p>Combine exterior and interior care for a more complete clean.</p></div></article>
+<article class="service"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZTL54prYPxOOk6LANDCwvnNimrCw8usLkr-oENqyAfDuolgdsZlU3IGU&s=10auto=format&fit=crop&w=900&q=85" alt="Polished car bodywork" loading="lazy"><div class="service-body"><h3>Wax Polishing</h3><p>Add a polished look to your vehicle. Contact us for package and availability details.</p></div></article>
+</div></div></section>
+<section class="subscription" id="subscriptions"><div class="wrap subscription-layout"><div><div class="kicker">Monthly subscriptions</div><h2>Make car care a simple monthly habit.</h2>
+<p class="muted">Choose a recurring plan that fits your vehicle and cleaning routine. Contact our team to learn about current subscription options, visit frequency, pricing and service coverage.</p>
+<ul class="check-list"><li>Monthly subscription options</li><li>Doorstep service in supported areas</li><li>Choose from available wash and care services</li><li>Booking assistance through WhatsApp or our Android app</li></ul>
+<a class="btn btn-primary" href="https://wa.me/917510100027" target="_blank" rel="noopener">Ask about monthly plans ↗</a></div><div class="subscription-image" role="img" aria-label="A freshly washed car"></div></div></section>
+<section id="about"><div class="wrap"><div class="section-head"><div class="kicker">Why Daily Domestics</div><h2>Car care that comes to you.</h2><p class="muted">We make it easier to keep your vehicle clean with doorstep service and convenient ways to enquire and book.</p></div>
+<div class="why-grid"><article class="why-card"><h3>Doorstep convenience</h3><p>Get your car cleaned at your doorstep in our supported service locations across Thiruvananthapuram.</p></article><article class="why-card"><h3>Monthly plans</h3><p>Explore subscription options designed to make regular car cleaning easier to plan.</p></article><article class="why-card"><h3>Multiple care options</h3><p>Choose exterior wash, interior cleaning, full wash or wax polishing based on your needs.</p></article></div></div></section>
+<div class="app-band"><div class="wrap app-content"><div><div class="kicker">Easy appointment booking</div><h2>Book your car wash with our Android app.</h2><p>Visit our app listing to explore appointment booking.</p></div><a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.dailydomestics.washmycar" target="_blank" rel="noopener">Get the Android app ↗</a></div></div>
+<section class="contact" id="contact"><div class="wrap contact-grid"><div><div class="kicker">Get in touch</div><h2>Let's keep your car clean.</h2><p>Contact Daily Domestics for service enquiries, doorstep availability and monthly subscription details.</p>
+<div class="contact-details"><div class="contact-item"><strong>Email</strong><a href="mailto:customercare@dailydomestics.co.in">customercare@dailydomestics.co.in</a></div>
+<div class="contact-item"><strong>Principal Place of Business</strong>Building No. TC.47/3041/2, Vaniyathu Lane,<br>Decent Junction, Mudavanmugal, Poojappura,<br>Thiruvananthapuram, Kerala – 695012</div></div></div>
+<div class="contact-card"><h3>DAILY DOMESTICS PRIVATE LIMITED</h3>
+<p><strong>Legal Name:</strong> DAILY DOMESTICS PRIVATE LIMITED</p>
+<p><strong>Trade Name:</strong> DAILY DOMESTICS PRIVATE LIMITED</p>
+<p><strong>GSTIN / Registration Number:</strong> 32AAICD3054E2Z3</p>
+<p><strong>Constitution of Business:</strong> Private Limited Company</p>
+<p>Have a question or want to know which monthly plan is right for you? Message our team on WhatsApp.</p>
+<a class="btn btn-primary" href="https://wa.me/917510100027" target="_blank" rel="noopener">Chat on WhatsApp · +91 75101 00027</a>
+<a class="btn btn-light" href="https://play.google.com/store/apps/details?id=com.dailydomestics.washmycar" target="_blank" rel="noopener">Book an appointment in the app</a>
+<p style="font-size:12px;margin-top:22px;color:#b9c9c0">“Love your car. Drive it clean.”</p></div></div></section>
+</main>
+<footer><div class="wrap"><span>© <span id="year"></span> DAILY DOMESTICS PRIVATE LIMITED. All rights reserved.</span><span>Doorstep car wash services · Thiruvananthapuram, Kerala</span></div></footer>
+<a class="wa-float" href="https://wa.me/917510100027" target="_blank" rel="noopener" aria-label="Message Daily Domestics on WhatsApp">◉</a>
+<script>document.getElementById("year").textContent=new Date().getFullYear();</script>
+</body></html>
